@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion versions.compileVersion
+    defaultConfig {
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion targetSdkVersion
+        vectorDrawables.useSupportLibrary = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_jre"
+    implementation "androidx.appcompat:appcompat:$versions.compact"
+    implementation "android.arch.navigation:navigation-fragment:$versions.navigation"
+    implementation "android.arch.navigation:navigation-ui:$versions.navigation"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$versions.navigation"
+    implementation "android.arch.navigation:navigation-ui-ktx:$versions.navigation"
+    implementation "androidx.core:core-ktx:$versions.core"
+    implementation "com.google.android.material:material:$versions.material"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
+    testImplementation "junit:junit:$versions.junit"
+}
