@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mobile_navigation">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/noteFragment">
+
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="co.uk.navigation.NoteFragment"
+        android:label="@string/label_note_list"
+        tools:layout="@layout/fragment_note">
+        <action
+            android:id="@+id/action_notes_to_addNote"
+            app:destination="@+id/addNoteFragment" />
+        <action
+            android:id="@+id/action_notes_to_noteDetail"
+            app:destination="@id/noteDetailFragment"
+            app:enterAnim="@anim/enter_slide_down"
+            app:exitAnim="@anim/exit_slide_down"
+            app:popEnterAnim="@anim/pop_enter_slide_up"
+            app:popExitAnim="@anim/pop_exit_slide_up"/>
+    </fragment>
 
 </navigation>

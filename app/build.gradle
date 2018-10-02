@@ -35,7 +35,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_jre"
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_jre"
+
+    //android
     implementation "androidx.appcompat:appcompat:$versions.compact"
     implementation "android.arch.navigation:navigation-fragment:$versions.navigation"
     implementation "android.arch.navigation:navigation-ui:$versions.navigation"
@@ -44,5 +47,10 @@ dependencies {
     implementation "androidx.core:core-ktx:$versions.core"
     implementation "com.google.android.material:material:$versions.material"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
+
+    //local module
+    implementation project(':navigation')
+
+    //test
     testImplementation "junit:junit:$versions.junit"
 }
