@@ -13,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ProjectRepository private constructor() {
     private val gitHubService: GithubService
+    private val projectRepository by lazy { ProjectRepository() }
 
     init {
         //TODO this gitHubService instance will be injected using Dagger in part #2 ...
@@ -43,6 +44,7 @@ class ProjectRepository private constructor() {
 
         gitHubService.getProjectDetails(userID, projectName).enqueue(object : Callback<Project> {
             override fun onFailure(call: Call<Project>?, t: Throwable?) {
+                simulateDelay()
                 data.setValue(null)
             }
 
@@ -50,19 +52,6 @@ class ProjectRepository private constructor() {
                 data.setValue(response?.body())
             }
         })
-
-        gitHubService.getProjectDetails(userID, projectName).enqueue(object : Callback<Project>() {
-            fun onResponse(call: Call<Project>, response: Response<Project>) {
-                simulateDelay()
-                data.setValue(response.body())
-            }
-
-            fun onFailure(call: Call<Project>, t: Throwable) {
-                // TODO better error handling in part #2 ...
-                data.setValue(null)
-            }
-        })
-
         return data
     }
 
@@ -73,20 +62,5 @@ class ProjectRepository private constructor() {
             e.printStackTrace()
         }
 
-    }
-
-    companion object {
-        private var projectRepository: ProjectRepository? = null
-
-        //TODO No need to implement this singleton in Part #2 since Dagger will handle it ...
-        val instance: ProjectRepository
-            @Synchronized get() {
-                if (projectRepository == null) {
-                    if (projectRepository == null) {
-                        projectRepository = ProjectRepository()
-                    }
-                }
-                return projectRepository
-            }
     }
 }
