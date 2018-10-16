@@ -47,6 +47,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$versions.core"
     implementation "com.google.android.material:material:$versions.material"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
+    implementation "androidx.multidex:multidex:$versions.multidex"
 
     //local module
     implementation project(':navigation')

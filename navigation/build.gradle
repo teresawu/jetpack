@@ -24,9 +24,16 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui:$versions.navigation"
     implementation "android.arch.navigation:navigation-fragment-ktx:$versions.navigation"
     implementation "android.arch.navigation:navigation-ui-ktx:$versions.navigation"
+    implementation "androidx.lifecycle:lifecycle-runtime:$versions.arch"
+    implementation "androidx.lifecycle:lifecycle-extensions:$versions.arch"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$versions.arch"
     implementation "androidx.core:core-ktx:$versions.core"
     implementation "com.google.android.material:material:$versions.material"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
+
+    //3rd party
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
 
     //test
     testImplementation "junit:junit:$versions.junit"
