@@ -1,4 +1,4 @@
-package co.uk.navigation.data
+package co.uk.github.data
 
 import java.util.*
 

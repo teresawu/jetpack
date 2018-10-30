@@ -1,9 +1,9 @@
-package co.uk.navigation.service
+package co.uk.github.service
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import co.uk.navigation.data.Keys
-import co.uk.navigation.data.Project
+import co.uk.github.data.Keys
+import co.uk.github.data.Project
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

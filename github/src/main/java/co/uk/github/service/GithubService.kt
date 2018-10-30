@@ -1,6 +1,6 @@
-package co.uk.navigation.service
+package co.uk.github.service
 
-import co.uk.navigation.data.Project
+import co.uk.github.data.Project
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
