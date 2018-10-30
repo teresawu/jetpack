@@ -1,62 +1,41 @@
 apply plugin: 'com.android.application'
+apply plugin: 'jacoco'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-allopen'
+apply plugin: 'androidx.navigation.safeargs'
 
-kapt {
-    generateStubs = true
-}
 
 android {
-    compileSdkVersion versions.compileVersion
+    compileSdkVersion build_versions.target_sdk
     defaultConfig {
-        applicationId versions.appId
-        minSdkVersion versions.minVersion
-        targetSdkVersion versions.targetVersion
-        versionCode versions.versionCode
-        versionName versions.versionName
-        multiDexEnabled true
-        vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        dexOptions {
-            javaMaxHeapSize "4g"
-        }
+        applicationId "co.uk.jetpack"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
+
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+jacoco {
+    toolVersion = "0.7.4+"
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_jre"
-
-    //android
-    implementation "androidx.appcompat:appcompat:$versions.compact"
-    implementation "androidx.core:core-ktx:$versions.core"
-    implementation "com.google.android.material:material:$versions.material"
-    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
-    implementation "androidx.multidex:multidex:$versions.multidex"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutine"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine"
-
-    // Network
-    api "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
-    api "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
-    api "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$versions.retrofitRxVersion"
-    api "com.squareup.okhttp3:logging-interceptor:$versions.okhttpVersion"
-    api "com.google.code.gson:gson:$versions.gsonVersion"
+    implementation "androidx.appcompat:appcompat:1.0.0"
+    implementation deps.kotlin.stdlib
+    implementation deps.constraint_layout
+    implementation "androidx.multidex:multidex:2.0.0"
 
     //local module
     implementation project(':github')
-
-    //test
-    testImplementation "junit:junit:$versions.junit"
 }
