@@ -6,7 +6,7 @@ ext.versions = [
         compileVersion      : 28,
 
         appId               : "co.uk.jetpack",
-        gradle              : '3.3.0-alpha13',
+        gradle              : '3.3.0-beta02',
         googleServices      : "3.2.0",
         kotlin_jre          : "1.2.30",
 

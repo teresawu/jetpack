@@ -40,19 +40,8 @@ dependencies {
 
     //android
     implementation "androidx.appcompat:appcompat:$versions.compact"
-    implementation "androidx.core:core-ktx:$versions.core"
-    implementation "com.google.android.material:material:$versions.material"
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
     implementation "androidx.multidex:multidex:$versions.multidex"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutine"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine"
-
-    // Network
-    api "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
-    api "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
-    api "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$versions.retrofitRxVersion"
-    api "com.squareup.okhttp3:logging-interceptor:$versions.okhttpVersion"
-    api "com.google.code.gson:gson:$versions.gsonVersion"
 
     //local module
     implementation project(':github')
