@@ -25,6 +25,7 @@ dependencies {
     //3rd party
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$versions.retrofitVersion"
+    implementation "org.koin:koin-android:$versions.koinVersion"
 
     //test
     testImplementation "junit:junit:$versions.junit"
