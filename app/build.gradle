@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
+apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-allopen'
-apply plugin: 'androidx.navigation.safeargs'
-
 
 android {
     compileSdkVersion build_versions.target_sdk
@@ -31,10 +31,15 @@ jacoco {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "androidx.appcompat:appcompat:1.0.0"
     implementation deps.kotlin.stdlib
     implementation deps.constraint_layout
     implementation "androidx.multidex:multidex:2.0.0"
+    implementation deps.support.app_compat
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    kapt deps.dagger.android_support_compiler
+    kapt deps.dagger.compiler
 
     //local module
     implementation project(':github')

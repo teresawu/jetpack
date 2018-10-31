@@ -1,11 +1,16 @@
 package co.uk.jetpack
 
-import androidx.multidex.MultiDexApplication
+import co.uk.jetpack.di.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
 
-class JetpackApp : MultiDexApplication() {
+class JetpackApp : DaggerApplication() {
+
+    override fun applicationInjector(): AndroidInjector<JetpackApp> {
+        return DaggerAppComponent.builder().create(this)
+    }
 
     override fun onCreate() {
         super.onCreate()
     }
-
 }
