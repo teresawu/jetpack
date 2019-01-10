@@ -1,4 +1,4 @@
-package co.uk.workmanager;
+package co.uk.mvi;
 
 import org.junit.Test;
 

@@ -1,1 +1,1 @@
-include ':app', ':github', ':workmanager'
+include ':app', ':mvi'

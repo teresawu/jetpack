@@ -22,6 +22,7 @@ android {
             javaMaxHeapSize "4g"
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -35,17 +36,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin_jre"
-
-    //android
-    implementation "androidx.appcompat:appcompat:$versions.compact"
-    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintLayout"
-    implementation "androidx.multidex:multidex:$versions.multidex"
 
     //local module
-    implementation project(':github')
-
-    //test
-    testImplementation "junit:junit:$versions.junit"
+    implementation project(':mvi')
 }
